@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Experiment outputs
+runs/
+*.pt
+*.pth
+*.ckpt
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+*.patch

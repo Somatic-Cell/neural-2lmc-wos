@@ -1,0 +1,37 @@
+seed: 1234
+device: auto
+dtype: float32
+output_dir: runs/ball3_siren_bias
+
+problem:
+  dim: 3
+  n_sources: 8
+  source_radius: 1.18
+  source_seed: 7
+  weight_scale: 0.25
+
+training:
+  steps: 3000
+  batch_size: 8192
+  lr: 1.0e-4
+  log_every: 250
+  eval_every: 500
+  checkpoint: runs/ball3_siren_bias/siren.pt
+
+cache:
+  type: siren
+  hidden_dim: 128
+  hidden_layers: 3
+  w0: 30.0
+  outermost_linear: true
+
+eval:
+  checkpoint: runs/ball3_siren_bias/siren.pt
+  n_points: 128
+  point_radius: 0.85
+  repetitions: 64
+  sample_counts: [1, 2, 4, 8, 16, 32, 64, 128]
+  cache_depths: [0, 1, 2, 4, 8]
+  eps: 1.0e-4
+  max_steps: 512
+  full_wos: true
